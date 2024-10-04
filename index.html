@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Unicode Preserverは、Unicodeの文字を保存しておくことができるアプリケーションです。">
+    <title>Unicode Preserver</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Unicode Preserver</h1>
+        <p><span id="caution">反映できない文字も多数ございます。。。</span></p>
+        <div id="hamburger-menus">
+            <div id="left-hamburger-menu" class="left-hamburger-menu">&#9776;</div>
+            <div id="right-hamburger-menu" class="right-hamburger-menu">&#9776;</div>
+        </div>
+    </header>
+    <div class="container">
+        <aside class="left-column" id="left-column">
+            <h2>Unicode カテゴリ</h2>
+            <ul id="category-list">
+                <!-- カテゴリ一覧をここに追加 -->
+            </ul>
+        </aside>
+        <main class="main-column">
+            <h2>詳細情報</h2>
+            <div id="details">
+                <!-- 選択したカテゴリや文字の詳細情報をここに表示 -->
+            </div>
+            <div id="under-container" class="under-container">
+                <h2>落書きスペース</h2>
+                <div class="large-textbox-container">
+                    <div class="copy-container large-div">
+                        <input type="text" id="large-textbox1" class="large-textbox" value="">
+                        <button onclick="copyToClipboard('large-textbox1')">写</button>
+                    </div>
+                    <div class="copy-container large-div">
+                        <input type="text" id="large-textbox2" class="large-textbox" value="">
+                        <button onclick="copyToClipboard('large-textbox2')">写</button>
+                    </div>
+                    <div class="copy-container large-div">
+                        <input type="text" id="large-textbox3" class="large-textbox" value="">
+                        <button onclick="copyToClipboard('large-textbox3')">写</button>
+                    </div>
+                </div>
+                <div class="small-textbox-container">
+                    <div class="copy-container small-div">
+                        <input type="text" id="small-textbox1" class="small-textbox" value="">
+                        <button onclick="copyToClipboard('small-textbox1')">写</button>
+                    </div>
+                    <div class="copy-container small-div">
+                        <input type="text" id="small-textbox2" class="small-textbox" value="">
+                        <button onclick="copyToClipboard('small-textbox2')">写</button>
+                    </div>
+                    <div class="copy-container small-div">
+                        <input type="text" id="small-textbox3" class="small-textbox" value="">
+                        <button onclick="copyToClipboard('small-textbox3')">写</button>
+                    </div>
+                </div>
+            </div>
+        
+            <div id="under-hamburger-menu" class="under-hamburger-menu">&#9776;</div>
+        </main>
+        <aside class="right-column" id="right-column">
+            <h2>登録したUnicode</h2>
+            <p><span id="copy-discription">クリックするとコピーできます。</span></p>
+            <ul id="registered-list">
+                <!-- 登録したUnicodeをここに追加 -->
+                 <div id="copy-notification"></div>
+            </ul>
+        </aside>
+    </div>
+    <footer>
+        <h2 class="cf-link">参考リンク</h2>
+        <p class="cf-link"><a href="https://ja.wiktionary.org/wiki/%E3%82%AB%E3%83%86%E3%82%B4%E3%83%AA:Unicode">カテゴリについて（Wikipedia）</a></p>
+        <p id="copy-right">©️ momiji</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>
