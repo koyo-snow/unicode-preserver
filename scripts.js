@@ -246,8 +246,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // リストの先頭に追加
         registeredList.insertBefore(li, registeredList.firstChild);
 
-        // localStorageに保存
-        saveToLocalStorage(row);
+        // sessionStorageに保存
+        saveToSessionStorage(row);
 
         // リストアイテムにクリックイベントリスナーを追加
         li.addEventListener('click', () => {
@@ -273,15 +273,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
-    function saveToLocalStorage(row) {
-        let registeredItems = JSON.parse(localStorage.getItem('registeredItems')) || [];
+    function saveToSessionStorage(row) {
+        let registeredItems = JSON.parse(sessionStorage.getItem('registeredItems')) || [];
         registeredItems.unshift(row);
-        localStorage.setItem('registeredItems', JSON.stringify(registeredItems));
+        sessionStorage.setItem('registeredItems', JSON.stringify(registeredItems));
     }
 
-    function loadFromLocalStorage() {
+    function loadFromSessionStorage() {
         const registeredList = document.getElementById('registered-list');
-        let registeredItems = JSON.parse(localStorage.getItem('registeredItems')) || [];
+        let registeredItems = JSON.parse(sessionStorage.getItem('registeredItems')) || [];
         registeredItems.forEach(row => {
             const li = document.createElement('li');
 
@@ -309,10 +309,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const registeredList = document.getElementById('registered-list');
         registeredList.removeChild(li);
 
-        // localStorageから削除
-        let registeredItems = JSON.parse(localStorage.getItem('registeredItems')) || [];
+        // sessionStorageから削除
+        let registeredItems = JSON.parse(sessionStorage.getItem('registeredItems')) || [];
         registeredItems = registeredItems.filter(item => JSON.stringify(item) !== JSON.stringify(row));
-        localStorage.setItem('registeredItems', JSON.stringify(registeredItems));
+        sessionStorage.setItem('registeredItems', JSON.stringify(registeredItems));
     }
 
     function parseCSV(data) {
@@ -328,8 +328,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ページロード時にlocalStorageからデータを読み込む
-    loadFromLocalStorage();
+    // ページロード時にsessionStorageからデータを読み込む
+    loadFromSessionStorage();
 });
 
 document.getElementById('left-hamburger-menu').addEventListener('click', function() {
