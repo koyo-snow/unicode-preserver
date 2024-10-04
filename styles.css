@@ -6,8 +6,44 @@ body {
 
 header, footer {
 	background-color: #f8f8f8;
-	padding: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	text-align: center;
+}
+
+footer {
+    width: calc(100% - 10%); /* main-columnの幅に合わせる */
+    margin: auto;
+}
+
+main {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.left-column, .right-column {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#category-list > li {
+    position: relative; /* 擬似要素の位置を相対的に設定 */
+    padding-bottom: 5px; /* 下線のスペースを確保 */
+}
+
+#category-list > li::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background-color: #676767; /* 下線の色を設定 */
+    transition: width 0.3s ease; /* 下線の表示をスムーズに */
+}
+
+#category-list > li:hover::after {
+    width: 100%; /* ホバー時に下線を表示 */
 }
 
 .container {
@@ -17,15 +53,15 @@ header, footer {
 
 .left-column, .right-column {
 	width: 20%;
-	background-color: #f0f0f0;
+	background-color: #e9e9e9;
 	overflow-y: auto;
 }
 
 
 .main-column {
-	width: 60%;
+	width: calc(60% - 40px);
     height: calc(100% - 30% - 60px); /* ヘッダーとフッターの高さを引いた値 */
-	padding: 10px;
+	/* padding: 10px; */
 	overflow-y: auto;
 }
 
@@ -93,14 +129,12 @@ button {
 
 .cf-link {
 	text-align: left;
-	margin-left: 20%;
 	font-weight: normal;
 	font-size: 86%;
 }
 
 #copy-right {
 	text-align: right;
-	margin-right: 20%;
 }
 
 
@@ -148,14 +182,13 @@ button {
 /* under-containerを画面の下部に固定 */
 .under-container {
     position: fixed;
-    width: calc(100% - 10px - 40%); /* main-columnの幅に合わせる */
+    width: calc(60% - 50px); /* main-columnの幅に合わせる */
     bottom: 0;
     height: 30%; /* 必要に応じて高さを調整 */
     border-top: 1px #888 solid;
     background-color: white; /* 必要に応じて背景色を設定 */
     z-index: 1000; /* 他の要素の上に表示 */
     overflow-y: auto; /* コンテンツが多い場合にスクロール可能にする */
-    margin: auto;
     margin-top: 5px;
     margin: auto; /* main-columnの左側に合わせる */
 }
